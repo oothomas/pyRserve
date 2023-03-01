@@ -3,11 +3,11 @@ Minimal pyRserve example
 
 ## Prerequsites
 
-* Install Rserve package to your local R installation
+* Install Rserve and geomorph packages to your local R installation. 
 * Install pyRserve package to your Slicer via `pip_install("pyRserve")`
 
 
-First, start R session (not Rstudio, the commandline R. It will block the UI and the terminal) via
+First, to start Rserve session (Create a separate standalone R via commandline, not Rstudio) type:
 ```
 library(Rserve)
 run.Rserve()
