@@ -17,7 +17,7 @@ conn.eval('require(geomorph)')
 conn.eval('arr=arrayspecs(coords,p=41,k=3)')
 conn.voidEval('gdf=geomorph.data.frame(Size=size,Coords=arr)')
 conn.voidEval('outlm=procD.lm(Coords ~ Size,data=gdf)')
-summary=conn.eval('summary(outlm)')
+model=conn.eval('outlm')
 #conn.eval('remove(list=ls())')
 conn.shutdown 
 #to shutdown Rserve. Otherwise it will stay open and contain all variable from the current session).
