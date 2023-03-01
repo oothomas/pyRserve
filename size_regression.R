@@ -1,0 +1,5 @@
+library(geomorph)
+dat = read.csv("data/OutputData.csv")
+gdf = geomorph.data.frame(Size=dat$centeroid, Coords=arrayspecs(dat[,4:126], p=41, k=3))
+model = procD.lm(Coords~Size, data=gdf)
+summary(model)
