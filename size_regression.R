@@ -1,5 +1,17 @@
+library(SlicerMorphR)
 library(geomorph)
-dat = read.csv("data/OutputData.csv")
-gdf = geomorph.data.frame(Size=dat$centeroid, Coords=arrayspecs(dat[,4:126], p=41, k=3))
-model = procD.lm(Coords~Size, data=gdf)
-summary(model)
+#log=file.choose()
+
+log="./LMs/2023-12-29_10_41_10/analysis.log"
+parsed=parser(log)
+
+dat=read.csv(paste(parsed$output.path, parsed$OutputData, sep="/"))
+size=dat$centeroid
+coords=arrayspecs(dat[,4:ncol(dat)], p=parsed$no.LM, k=3)
+gdf=geomorph.data.frame(Size=size, Coords=coords)
+
+
+size.model = as.formula(Coords~Size)
+outlm=procD.lm(size.model, data=gdf)
+
+

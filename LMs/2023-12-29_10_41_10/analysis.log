@@ -1,0 +1,15 @@
+Date=2023-12-29
+Time=10:41:10
+InputPath=/Users/amaga/Desktop/Mouse_Models/LMs
+OutputPath=/Users/amaga/Desktop/Mouse_Models/LMs/2023-12-29_10_41_10
+Files=X129P3_J_.fcsv,TALLYHO_JNGJ_.fcsv,SWR_J_.fcsv,SPRET_EiJ_.fcsv,SM_J_.fcsv,SKIVE_EiJ_.fcsv,SJL_J_.fcsv,SF_CamEiJ_.fcsv,PWK_PhJ_.fcsv,PWD_PhJ_.fcsv,PL_J_.fcsv,PERC_EiJ_.fcsv,NZW_LACJ_.fcsv,NZO_HiLtJ_.fcsv,NZB_BlNJ_.fcsv,NZBWF1_J_.fcsv,NU_J_.fcsv,NOR_LtJ_.fcsv,NOD_SHILTJ_.fcsv,MRL_MPJ_.fcsv,MOLG_DnJ_.fcsv,MOLF_EiJ_.fcsv,LP_J_.fcsv,LG_J_.fcsv,LEWES_J_.fcsv,KK_HIJ_.fcsv,I_LnJ_.fcsv,FVB_NJ_.fcsv,DBA_2J_.fcsv,DBA_1J_.fcsv,CZECHII_EiJ_.fcsv,CBA_J_.fcsv,CBA_CAJ_.fcsv,CB6F1_J_.fcsv,CAST_EIJ_.fcsv,CAF1_J_.fcsv,C57L_J_.fcsv,C57BL_6NJ_.fcsv,C57BL_10J_.fcsv,C57BLKS_J_.fcsv,C57BL6_J_.fcsv,C3HeB_FeJ_.fcsv,C3H_HEOUJ_.fcsv,C3H_HEJ_.fcsv,C3D2F1_J_.fcsv,BUB_BnJ_.fcsv,BTBR_T_Itpr3tf_j.fcsv,BALB_CJ_.fcsv,BALB_CBYJ_.fcsv,B6SJLF1_J_.fcsv,B6FVBF1_J_.fcsv,B6D2F1_J_.fcsv,B6CBAF1_J_.fcsv,B6C3F1_j_.fcsv,B6AF1_J_.fcsv,B6129SF1_J_.fcsv,B6129PF1_J_.fcsv,Ark_J_skull_.fcsv,A_J_skull_.fcsv,129X1_SVJ_.fcsv,129S1_SVIMJ_.fcsv
+LM_format=.fcsv
+NumberLM=51
+ExcludedLM=
+Boas=False
+MeanShape=MeanShape.csv
+eigenvalues=eigenvalues.csv
+eigenvectors=eigenvectors.csv
+OutputData=OutputData.csv
+pcScores=pcScores.csv
+SemiLandmarks= 
