@@ -18,7 +18,7 @@ import numpy as np
 import slicer
 import Support.gpa_lib as gpa_lib
 
-# Connect to an already-running Rserve (start it in R with: library(Rserve); Rserve())
+# Connect to an already-running Rserve (start it in R with: library(Rserve); Rserve(debug=TRUE, args="--no-save"))
 conn = pyRserve.connect(host='127.0.0.1', port=6311)
 conn.r.ls()
 
@@ -56,6 +56,8 @@ conn.voidEval('mod=as.formula(Coords~Size)')
 conn.voidEval('outlm=procD.lm(mod, data=gdf)')
 model = conn.eval('outlm')
 
+conn.shutdown()
+
 # --- Extract regression coefficients ---
 # modelCoeffs: shape (2, 3p) -> [0]=intercept, [1]=slope (Size)
 modelCoeffs  = model[2]
@@ -90,6 +92,14 @@ gpaWidget.pcNumber = lmData.vec.shape[1]
 lmData.sortedEig = gpa_lib.pairEig(lmData.val, lmData.vec)
 gpaWidget.updateList()
 
+# --- IMPORTANT: recompute scatterDataAll for all components/vectors ---
+numPC = gpaWidget.pcNumber                 # total vectors now (PCs + Allometry slope)
+n_spec = lmData.lm.shape[2]
+gpaWidget.scatterDataAll = np.zeros((n_spec, numPC))
+for i in range(numPC):
+    scores = gpa_lib.plotTanProj(lmData.lm, lmData.sortedEig, i, 1)  # (n x ?), scores in col 0
+    gpaWidget.scatterDataAll[:, i] = scores[:, 0]
+
 # Rename the last entry everywhere to avoid calling it a “PC”
 try:
     # Internal list used by UI population
@@ -109,7 +119,9 @@ try:
             gpaWidget.slider1.populateComboBox(gpaWidget.PCList)
         # Ensure rename even if populate path differs
         if gpaWidget.slider1.comboBox.count > 1:
-            gpaWidget.slider1.comboBox.setItemText(gpaWidget.slider1.comboBox.count - 1, "Allometry slope")
+            gpaWidget.slider1.comboBox.setItemText(
+                gpaWidget.slider1.comboBox.count - 1, "Allometry slope"
+            )
 except Exception as e:
     print("Rename UI entries warning:", e)
 
