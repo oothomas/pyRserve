@@ -19,6 +19,7 @@ import slicer
 import Support.gpa_lib as gpa_lib
 
 # Connect to an already-running Rserve (start it in R with: library(Rserve); Rserve(debug=TRUE, args="--no-save"))
+# On Windows -> Rserve(args="--no-save --RS-encoding utf8 --RS-port 6311")
 conn = pyRserve.connect(host='127.0.0.1', port=6311)
 conn.r.ls()
 
