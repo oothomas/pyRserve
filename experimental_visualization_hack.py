@@ -86,6 +86,9 @@ def _rowpick(names, key):
             return i
     return None
 
+# Launch R and, run the following:
+# library(Rserve); Rserve(debug=TRUE, args="--no-save")
+
 # -------------------- MAIN --------------------
 # 1) Hook into GPA widget and grab aligned landmark data
 gpaWidget = slicer.modules.gpa.widgetRepresentation().self()
